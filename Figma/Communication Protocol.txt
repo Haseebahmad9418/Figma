@@ -1,0 +1,36 @@
+UI Application Communication Protocol
+
+- UI application will run outside ROS environment
+- UDP protocol is used for the communication between UI application and ROS environment.
+- 2 UDP ports are used: 1 for ROS bag recording, another for status updates.
+- UI application will implement UDP client and communicate with a UDP server application in the ROS environment for ROS bag recording.
+- UI application will implement a UDP server to receive updates from the application that subscribes to the ROS topics and report this data back to the UI application(UDPserver).
+
+
+UI (Client) <-----> Bag recorder (Server) 
+Communication Protocol
+
+Purpose                   		|   Command     |       Response
+
+Start Record					1		1,Success    ---- 1,Fail
+Stop Record					0		0,Success    ---- 0,Fail
+Kill Server					c		
+
+UI (Server) <-----> Topic Subscriber (Client) 
+Communication Protocol
+
+Purpose							|	Message
+
+Set GPS Location				101,<Latitude>,<Longitude>,<Location>
+Set ADS-B SDR Status				102,<Status>
+Set Interior Camera Status			103,<Status>
+Set Exterior Camera Status			104,<Status>
+Set Cabin Mic Status				105,<Status>
+Set Radio Signal Strength			106,<Signal Strength (Range: 0-1)>
+Set Wifi Card Status				201,<Status>
+Set Connected Devices				202,<List of devices>
+Set LTE Signal Strength				203,<Signal Strength (Range: 0-1)>
+Set AWS Connectivity Status			204,<Status>
+Set LTE Speed					205,<Speed (Mbps)>
+Set Total Data Transferred			206,<Data Transferred (GB)>
+

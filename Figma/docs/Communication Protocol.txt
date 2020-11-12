@@ -1,0 +1,22 @@
+UI (Client) <-----> Application (Server) 
+Communication Protocol
+
+Purpose                   		|   Command     |       Response
+
+Start Record					1		1,Success    ---- 1,Fail
+Stop Record					0		0,Success    ---- 0,Fail
+Kill Process					c		c,Success    ---- c,Fail
+Get Remaining Storage Space			100		100,<Space>
+Get GPS Location				101		101,<Latitude>,<Longitude>,<Location>
+Get ADS-B SDR Status				102		102,<Status>
+Get Interior Camera Status			103		103,<Status>
+Get Exterior Camera Status			104		104,<Status>
+Get Cabin Mic Status				105		105,<Status>
+Get Radio Signal Strength			106		106,<Signal Strength (Range: 0-1)>
+Get Wifi Card Status				201		201,<Status>
+Get Connected Devices				202		202,<List of devices>
+Get LTE Signal Strength				203		203,<Signal Strength (Range: 0-1)>
+Get AWS Connectivity Status			204		204,<Status>
+Get LTE Speed					205		205,<Speed (Mbps)>
+Get Total Data Transferred			206		206,<Data Transferred (GB)>
+
